@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The Veil Newsletter</title>
+    <link rel="stylesheet" href="veil.css">
+    <link rel="stylesheet" href="Music Player/musicplayer.css">
+    <link rel="stylesheet" href="Dynamic Text/dynamic.css">
+    <link rel="stylesheet" href="Dynamic Text/authorcolors.css">
+    <link rel="icon" type="image/gif" href="https://pixelsafari.neocities.org/favicon/object/tech/computer10.gif">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <canvas id="bgCanvas"></canvas>
+    <div class="newsletter" role="main">
+    <header class="masthead" aria-label="Veil newsletter header">
+      <div class="logo" aria-hidden="true">V</div>
+      <div>
+        <h1>THE VEIL NEWSLETTER</h1>
+        <p>with a jukebox, of course.</p>
+      </div>
+      <div style="margin-left:auto; text-align:right;">
+        <small class="muted">Issue • 01</small><br>
+        <small class="muted">October 1, 2025</small>
+        <div style="margin-left:14px;">
+          <button id="after-dark-toggle"
+            class="after-dark-toggle"
+            aria-pressed="false"
+            aria-label="Show After Dark posts (toggle)">
+          🌙 After Dark
+          </button>
+        </div>
+        <div style="margin-left:8px;">
+          <button id="grownup-toggle"
+            class="grownup-toggle"
+            aria-pressed="false"
+            aria-label="Show grownup (18+) posts (toggle)">
+          🔞 NSFW
+          </button>
+        </div>
+    </header>
+    <section class="main" aria-labelledby="welcome">
+    <div class="intro" id="welcome">
+    <div>
+    <p class="lead">welcome to THE VEIL. please enjoy your stay.</p>
+    <p class="sub">a buncha bullshit! we write whatever!</p>
+    </div>
+    </div>
+    <div class="facts" role="list">
+    <article class="fact" role="listitem" aria-labelledby="who">
+    <h4 id="who">[Who is Veil?]</h4>
+    <p>Allegedly, a multicellular being capable of a moderate-to-complex range of tasks.</p>
+    </article>
+    <article class="fact" role="listitem" aria-labelledby="what">
+    <h4 id="what">[What is Veil?]</h4>
+    <p>Experts believe "Veil" to be composed of at least 40% hallucinogenic materials and a carbon monoxide detector without batteries.</p>
+    </article>
+    <article class="fact" role="listitem" aria-labelledby="why">
+    <h4 id="why">[Why is Veil?]</h4>
+    <p>Mostly, for writing! An OSDD-1b system full of verbose idiots needed <em>somewhere</em> to talk.</p>
+    </article>
+    </div>
+    <div id="posts-list" aria-live="polite"></div>
+    <footer>
+    <p>&copy; 2025 Made by <a href="theveil.txt" target="_self" rel="noopener noreferrer">THE VEIL</a>. All rights reserved.</p>
+    <p>For credits, <a href="credits.html" target="_self" rel="noopener noreferrer">click here</a>.
+    </footer>
+    </section>
+    <aside class="sidebar">
+    <section class="sidebar-box archives">
+    <h4>archives</h4>
+    <div class="archive-list" id="archive-list"></div>  
+    </section>
+    <section class="sidebar-box player-box">
+    <div class="player-head">
+    <a id="track-title" href="#" target="_blank" rel="noopener noreferrer">— loading —</a>
+    <small class="player-meta muted">Deep Sea Jukebox</small>
+    </div>
+    <audio id="audio" preload="auto"></audio>
+    <div class="player-controls">
+    <button id="prev-btn" class="pc-btn" onclick="prevTrack()" aria-label="Previous track">⏮</button>
+    <button id="play-pause" class="pc-btn play" onclick="togglePlay()" aria-label="Play / Pause">▶</button>
+    <button id="skip-btn" class="pc-btn" onclick="nextTrack()" aria-label="Next track">⏭</button>
+    <div class="player-toggles">
+    <button id="repeat-btn" class="pc-btn toggle" onclick="toggleRepeat()" aria-pressed="false" aria-label="Repeat">⟳</button>
+    <button id="shuffle-btn" class="pc-btn toggle" onclick="shufflePlaylist()" aria-pressed="false" aria-label="Shuffle">⇄</button>
+    </div>
+    </div>
+    <div id="progress-container" class="progress-container" onclick="seek(event)" role="progressbar" aria-label="Seek">
+    <div id="progress-bar" class="progress-bar"></div>
+    </div>
+    <div class="time-row">
+    <span id="current-time">0:00</span>
+    <span id="duration">0:00</span>
+    </div>
+    <div class="volume-row" aria-hidden="false">
+    <button id="vol-toggle" class="vol-icon" aria-label="Toggle mute" type="button">🔊</button>
+    <div id="custom-volume-track" class="volume-track" aria-label="Volume control" role="slider" tabindex="0">
+    <div id="custom-volume-fill" class="volume-fill" aria-hidden="true"></div>
+    <div id="custom-volume-thumb" class="volume-thumb" aria-hidden="true"></div>
+    </div>
+    </div>
+    <div id="quote-text" class="player-quote muted" aria-hidden="true"></div>
+    <div id="descDisplay" class="player-desc muted" aria-hidden="true"></div>
+    <div class="dynamic-playlist"> <ul id="playlist-list"></ul> </div>
+    </section>
+    </aside>
+    </div>
+    <script src="bg-drift.js"></script>
+    <script src="Music Player/musicplayer.js"></script>
+    <script src="Dynamic Text/dynamic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+:root {
+--author-miyu:   #d7e4ff;
+--author-winter: #206aff;
+--author-shio:   #6e92ff;
+--author-dusty:  #ff777d;
+--author-wren:   #8eceff;
+--author-ive:    #17ff51;
+--author-louis:  #fff366;
+--author-toma:   #da6aff;
+--author-sienna: #ffc977;
+--author-veil:   #7FFDCD;
+--author-default: #0a1c1a;
+}
+.post[data-author="miyu"]   { --author-color: var(--author-miyu); }
+.post[data-author="winter"] { --author-color: var(--author-winter); }
+.post[data-author="shio"]   { --author-color: var(--author-shio); }
+.post[data-author="dusty"]  { --author-color: var(--author-dusty); }
+.post[data-author="wren"]   { --author-color: var(--author-wren); }
+.post[data-author="ive"]    { --author-color: var(--author-ive); }
+.post[data-author="louis"]  { --author-color: var(--author-louis); }
+.post[data-author="sienna"] { --author-color: var(--author-sienna); }
+.post[data-author="toma"]   { --author-color: var(--author-toma); }
+.post[data-author="veil"]   { --author-color: var(--author-veil); }
+.post {
+position: relative;
+padding: 14px 14px 14px 24px;
+background: color-mix(in srgb, var(--author-default) 8%, transparent);
+border: 1px solid rgba(255, 255, 255, 0.03);
+border-radius: 12px;
+margin-bottom: 14px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+transition: background .22s ease, border-color .22s ease, transform .12s ease;
+}
+.post:hover { transform: translateY(-2px); }
+.post a:hover {
+color: var(--highlight);
+text-decoration: none;
+transition: color 0.2s ease;
+}
+.post::before {
+content: "";
+position: absolute;
+left: 0; top: 0; bottom: 0;
+width: 6px;
+border-radius: 12px 0 0 12px;
+z-index: 2;
+pointer-events: none;
+background-color: var(
+--coauthor-border-color,
+color-mix(in srgb, var(--author-color, var(--author-default)) 25%, transparent)
+);
+background-image: var(--coauthor-border-gradient);
+background-repeat: no-repeat;
+background-size: 100% 100%;
+background-clip: border-box;
+}
+.post[data-author] {
+background: color-mix(in srgb, var(--author-color, var(--author-default)) 6%, transparent);
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.post[data-author] h2   { color: var(--text-main); }
+.post[data-author] time {
+color: color-mix(in srgb, var(--author-color, var(--accent-color)) 65%, var(--text-soft));
+}
+.post[data-author] .tag-list {
+margin-top: 8px;
+display: flex;
+gap: 8px;
+flex-wrap: wrap;
+}
+.post[data-author] .tag-btn {
+background: color-mix(in srgb, var(--author-color, var(--author-default)) 10%, transparent);
+border: 1px solid color-mix(in srgb, var(--author-color, var(--author-default)) 18%, transparent);
+color: var(--text-main);
+padding: 6px 8px;
+font-size: 12px;
+border-radius: 999px;
+cursor: pointer;
+transition: transform .08s ease, background .12s ease;
+}
+.post[data-author] .tag-btn:hover {
+transform: translateY(-2px);
+background: color-mix(in srgb, var(--author-color, var(--author-default)) 16%, transparent);
+}
+.post[data-author] .tag-btn.active {
+background: color-mix(in srgb, var(--author-color, var(--author-default)) 25%, transparent);
+border-color: color-mix(in srgb, var(--author-color, var(--author-default)) 35%, transparent);
+transform: translateY(-1px) scale(1.02);
+}
+.post .author-badge {
+display: inline-block;
+margin-left: 8px;
+padding: 2px 8px;
+font-size: 12px;
+color: var(--text-soft);
+border-radius: 999px;
+background: rgba(255,255,255,0.01);
+border: 1px solid rgba(255,255,255,0.015);
+cursor: pointer;
+transition: transform .12s ease, background .12s ease;
+}
+.post[data-author] .author-badge {
+background: color-mix(in srgb, var(--author-color, var(--author-default)) 10%, transparent);
+border: 1px solid color-mix(in srgb, var(--author-color, var(--author-default)) 18%, transparent);
+color: var(--text-main);
+}
+.post[data-author] .author-badge:hover {
+transform: translateY(-2px) scale(1.05);
+background: color-mix(in srgb, var(--author-color, var(--author-default)) 18%, transparent);
+}
+.post[data-author] .author-badge.active {
+background: color-mix(in srgb, var(--author-color, var(--author-default)) 30%, transparent);
+border-color: color-mix(in srgb, var(--author-color, var(--author-default)) 40%, transparent);
+transform: translateY(-1px) scale(1.02);
+}
+.post[data-author] {
+background: color-mix(in srgb, var(--author-color, var(--author-default)) 4%, transparent);
+color: color-mix(in srgb, var(--author-color, var(--text-main)) 10%, var(--text-main));
+}
+.post[data-author] h1,
+.post[data-author] h2,
+.post[data-author] h3 {
+color: color-mix(in srgb, var(--author-color, var(--text-main)) 20%, var(--text-main));
+}
+.post[data-author] p,
+.post[data-author] li,
+.post[data-author] blockquote {
+color: color-mix(in srgb, var(--author-color, var(--text-main)) 8%, var(--text-main));
+}
+.post[data-author] a {
+color: color-mix(in srgb, var(--author-color, var(--highlight)) 25%, var(--highlight));
+transition: color 0.2s ease;
+}
+.post[data-author] a:hover {
+color: color-mix(in srgb, var(--author-color, var(--highlight)) 55%, var(--highlight));
+}
+@media (max-width:680px) {
+.post { padding: 12px 12px 12px 24px; border-radius: 10px; }
+.post .author-badge { margin-left: 6px; padding: 2px 6px; font-size: 11px; }
+.post::before { width: 6px; border-radius: 10px 0 0 10px; }
+}
